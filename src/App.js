@@ -1,5 +1,8 @@
-import './App.css';
-import Header from './components/Header';
+import "./App.css";
+import { useState } from "react";
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -22,10 +25,18 @@ function App() {
       isDone: false,
     },
   ]);
+
+  // DELETE TASK
+  const deleteTask = (deletedTaskId) => {
+    // console.log("delete", deletedTaskId);
+    setTasks(tasks.filter((task) => task.id !== deletedTaskId));
+  };
+
   return (
     <div className="container">
-        <Header title={"TASK TRACKER"}/>
-        <Tasks />
+      <Header title="TASK TRACKER" />
+      <AddTask />
+      <Tasks tasks={tasks} deleteTask={deleteTask} />
     </div>
   );
 }
