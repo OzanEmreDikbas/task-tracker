@@ -26,8 +26,7 @@ function App() {
     },
   ]);
 
-  const [showAddTask, setShowAddTask] = useState(false);
-
+  
   // ADD TASK
   const addTask = (newTask) => {
     // console.log("Add Task From App.js");
@@ -50,6 +49,8 @@ function App() {
       )
     );
   };
+
+  const [showAddTask, setShowAddTask] = useState(false);
 
   // SHOW ADD TASK
   const toggleShow = () => setShowAddTask(!showAddTask);
